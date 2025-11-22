@@ -19,7 +19,7 @@ const mockHistory: DownloadRecord[] = [
   {
     id: "1",
     productName: "MCB Box",
-    quantity: 100,\
+    quantity: 100,
     downloadDate: "2024-10-26 14:45",
     fileName: "MCB_Box_100_20241026.xlsx",
     status: "completed",

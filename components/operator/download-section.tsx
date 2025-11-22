@@ -6,7 +6,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Download, AlertCircle } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { toast } from 'sonner'
+// import { toast } from 'sonner'
+// import { addDoc, collection, Firestore } from "firebase/firestore"
+// import { addinigFirst, db } from "@/app/api/firebase-config"
 
 const productQRAvailability: Record<string, number> = {
   "MCB Box": 1250,
@@ -24,20 +26,8 @@ export function DownloadSection() {
   const [isDownloading, setIsDownloading] = useState(false)
 
   const handleDownload = async () => {
-    if (!productName || !quantity || !simulProduct) {
-      toast.error("Product name, quantity, Simultaneous product is required to fill")
-      return
-    } else if (parseInt(simulProduct) > 0 ) {
-      toast.error("Simultaneous product should be more than 1")
-    }
-
-    setIsDownloading(true)
-    // Simulate download
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-    setIsDownloading(false)
-    // Reset form
-    setProductName("")
-    setQuantity("")
+    const response = await fetch(`http://localhost:3000/api/auth/login`);
+    console.log("Response of api req", response)
   }
 
   const isFormValid = productName.trim() && quantity && Number.parseInt(quantity) > 0

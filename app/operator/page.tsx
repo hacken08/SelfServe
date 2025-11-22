@@ -12,7 +12,7 @@ import { LogOut, Download, Plus, History } from "lucide-react"
 export default function OperatorPage() {
   const router = useRouter()
   const [userName, setUserName] = useState("")
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
   const [activeTab, setActiveTab] = useState("downloads")
 
 
@@ -25,9 +25,9 @@ export default function OperatorPage() {
       return
     }
 
-    setUserName(storedUserName || "")
-    setIsLoading(false)
-  }, [router])
+    // setUserName(storedUserName || "")
+    // setIsLoading(false)
+  }, [])
 
   const handleLogout = () => {
     localStorage.removeItem("userRole")

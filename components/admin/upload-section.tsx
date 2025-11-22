@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Upload, FileUp, AlertCircle, X } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
+// import { addDoc, collection } from 'firebase/firestore'
+// import { db } from '../../app/api/firebase-config'
 
 export function UploadSection() {
   const [uploadType, setUploadType] = useState<"excel" | "qr">("excel")
@@ -15,29 +17,24 @@ export function UploadSection() {
   const [fileInput, setFileInput] = useState<HTMLInputElement | null>(null)
 
   const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
-    if (file) {
-      setFileName(file.name)
-    }
+    
   }
 
   const handleUpload = async () => {
-    if (!fileName) return
-    setIsUploading(true)
-    // Simulate upload
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-    setIsUploading(false)
-    setFileName("")
-    if (fileInput) {
-      fileInput.value = ""
-    }
+    // try {
+    //   const docRef = await addDoc(collection(db, "users"), {
+    //     first: "Ada",
+    //     last: "Lovelace",
+    //     born: 1815
+    //   });
+    //   console.log("Document written with ID: ", docRef.id);
+    // } catch (e) {
+    //   console.error("Error adding document: ", e);
+    // }
   }
 
   const clearFile = () => {
-    setFileName("")
-    if (fileInput) {
-      fileInput.value = ""
-    }
+   
   }
 
   return (

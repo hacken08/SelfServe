@@ -17,17 +17,17 @@ export default function AdminPage() {
   const [activeTab, setActiveTab] = useState("upload")
 
   useEffect(() => {
-    const userRole = localStorage.getItem("userRole")
-    const storedUserName = localStorage.getItem("userName")
+    // const userRole = localStorage.getItem("userRole")
+    // const storedUserName = localStorage.getItem("userName")
 
-    if (!userRole || userRole !== "admin") {
-      router.push("/login")
-      return
-    }
+    // if (!userRole || userRole !== "admin") {
+    //   router.push("/login")
+    //   return
+    // }
 
-    setUserName(storedUserName || "")
-    setIsLoading(false)
-  }, [router])
+    // setUserName(storedUserName || "")
+    // setIsLoading(false)
+  }, [])
 
   const handleLogout = () => {
     localStorage.removeItem("userRole")
